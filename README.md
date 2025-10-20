@@ -53,14 +53,20 @@ The crawler avoids external domains (e.g., Facebook, Twitter) and limits itself 
 ### 1. Install Python (if not already installed)
 
 ### 2. Clone the repository and navigate to the project directory.
-`git clone <repo_url>`
-`cd <repo_folder>`
+```bash
+git clone <https://github.com/popovic01/monzo-web-crawler>
+cd <https://github.com/popovic01/monzo-web-crawler>
+```
 
 ### 3. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Run the crawler
+```bash
 python main.py
+```
 
 ## ⚡ Future improvements
 - Add async crawler version using aiohttp for greater performance.
