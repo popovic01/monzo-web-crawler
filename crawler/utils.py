@@ -101,11 +101,6 @@ def extract_internal_links(starting_url: str, soup):
             absolute_url = urljoin(starting_url, url)
         # print(f"Absolute_url: {absolute_url}")
 
-        # skip non-http(s) links
-        ext = os.path.splitext(urlparse(absolute_url).path)[1].lower()
-        if ext in _INVALID_EXTENSIONS:
-            continue
-
         # remove fragment and normalize
         try:
             absolute_url = normalize_url(absolute_url)
