@@ -2,6 +2,8 @@
 from urllib.parse import urlparse, urljoin, urldefrag, parse_qsl, urlencode, urlunparse
 import os
 
+# this tuple defines file extensions that are non-HTML resources.
+# these types of files don’t contain links for further crawling (like images, videos, documents, etc.).
 _INVALID_EXTENSIONS = (
     ".pdf", ".jpg", ".jpeg", ".png", ".gif", ".svg",
     ".zip", ".mp4", ".mp3", ".doc", ".docx",
@@ -59,7 +61,7 @@ def normalize_url(url: str) -> str:
         if not isinstance(url, str):
             raise ValueError("URL must be a string")
 
-        # remove fragment
+        # remove fragment because they don’t affect page content
         url, _ = urldefrag(url)
         p = urlparse(url)
         # lowercase the domain
