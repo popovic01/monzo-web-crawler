@@ -77,10 +77,9 @@ def extract_internal_links(starting_url: str, soup):
     """
     Return unique normalized internal links found in `soup` for `starting_url`.
     - `starting_url` should be the page URL (used for resolving relative links and netloc check).
-    - Skips mailto/javascript/fragment-only links and common non-HTML extensions.
+    - Skips mailto/javascript/fragment-only links.
     - Preserves query parameters but strips fragments.
     """
-    starting_url = normalize_url(starting_url)
     start_netloc = urlparse(starting_url).netloc.lower()
 
     found_links = set()
@@ -101,11 +100,6 @@ def extract_internal_links(starting_url: str, soup):
             absolute_url = urljoin(starting_url, url)
         # print(f"Absolute_url: {absolute_url}")
 
-        # remove fragment and normalize
-        try:
-            absolute_url = normalize_url(absolute_url)
-        except ValueError:
-            continue
         parsed = urlparse(absolute_url)
 
         # enforce single-subdomain rule (exact netloc match)
