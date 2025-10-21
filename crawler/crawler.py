@@ -33,9 +33,11 @@ class Crawler:
                 if links:
                     for link in links:
                         print(f" - {link}")
-                        if (link != current_url and link not in self.visited_urls
-                                and link not in self.urls_to_visit and is_valid_url(link)):
-                            self.urls_to_visit.append(link)
+                        if link != current_url and is_valid_url(link):
+                            normalized_link = normalize_url(link)
+                            if (normalized_link not in self.visited_urls and
+                                normalized_link not in self.urls_to_visit):
+                                self.urls_to_visit.append(normalized_link)
                 else:
                     print(" - None")
             except requests.RequestException as e:
