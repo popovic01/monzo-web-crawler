@@ -8,14 +8,10 @@ import threading
 
 class CrawlerMultithreading:
     def __init__(self, initial_url: str, max_threads: int = 5):
-        normalized_url = normalize_url(initial_url)
-        if not is_valid_url(normalized_url):
-            raise ValueError("Invalid initial URL")
-
         self.visited_urls = set()
         self.visited_lock = threading.Lock()
         self.urls_to_visit = Queue()
-        self.urls_to_visit.put(normalized_url)
+        self.urls_to_visit.put(normalize_url(initial_url))
         self.max_threads = max_threads
 
     def worker(self):
