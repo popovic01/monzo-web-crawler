@@ -54,8 +54,8 @@ The crawler avoids external domains (e.g., Facebook, Twitter) and limits itself 
 
 ### 2. Clone the repository and navigate to the project directory.
 ```bash
-git clone <https://github.com/popovic01/monzo-web-crawler>
-cd <https://github.com/popovic01/monzo-web-crawler>
+git clone https://github.com/popovic01/monzo-web-crawler
+cd monzo-web-crawler
 ```
 
 ### 3. Install dependencies
