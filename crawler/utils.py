@@ -44,9 +44,9 @@ def is_valid_url(url) -> bool:
         print(f"Unexpected error validating URL {url}: {e}")
         return False
 
-def normalize_url(url: str) -> str:
+def normalise_url(url: str) -> str:
     """
-    Normalize a URL for deduplication:
+    Normalise a URL for deduplication:
     - remove fragment part (#...)
     - lowercase the domain
     - strip trailing slash from path for consistency
@@ -68,14 +68,14 @@ def normalize_url(url: str) -> str:
         netloc = p.netloc.lower()
         path = p.path.rstrip("/") or "/"
 
-        normalized = urlunparse((p.scheme, netloc, path, p.params, p.query, ""))
-        return normalized
+        normalised = urlunparse((p.scheme, netloc, path, p.params, p.query, ""))
+        return normalised
     except Exception as e:
-        raise ValueError(f"Failed to normalize URL: {e}") from e
+        raise ValueError(f"Failed to normalise URL: {e}") from e
 
 def extract_internal_links(starting_url: str, soup):
     """
-    Return unique normalized internal links found in `soup` for `starting_url`.
+    Return unique normalised internal links found in `soup` for `starting_url`.
     - `starting_url` should be the page URL (used for resolving relative links and netloc check).
     - Skips mailto/javascript/fragment-only links.
     - Preserves query parameters but strips fragments.
@@ -110,4 +110,4 @@ def extract_internal_links(starting_url: str, soup):
     return found_links
 
 # exported names
-__all__ = ["is_valid_url", "normalize_url", "extract_internal_links"]
+__all__ = ["is_valid_url", "normalise_url", "extract_internal_links"]

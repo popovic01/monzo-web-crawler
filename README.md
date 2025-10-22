@@ -30,7 +30,7 @@ The crawler avoids external domains (e.g., Facebook, Twitter) and limits itself 
 - **crawler.py** – Core crawling logic
   - Handles exceptions (timeouts, bad URLs) to avoid crashes.
 - **utils.py** – Utility functions
-  - URL normalization (remove fragments, lowercase domains, strip trailing slashes).
+  - URL normalisation (remove fragments, lowercase domains, strip trailing slashes).
   - Valid URL checks and internal link extraction.
 - **main.py** – Entry point
   - Accepts the starting URL.

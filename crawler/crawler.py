@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from collections import deque
-from .utils import normalize_url, is_valid_url, extract_internal_links
+from .utils import normalise_url, is_valid_url, extract_internal_links
 
 class Crawler:
 
@@ -10,7 +10,7 @@ class Crawler:
         self.visited_urls = set()
         # queue of URLs to visit
         self.urls_to_visit = deque()
-        self.urls_to_visit.append(normalize_url(initial_url))
+        self.urls_to_visit.append(normalise_url(initial_url))
 
     def crawl(self):
         # process queue until empty
@@ -34,10 +34,10 @@ class Crawler:
                     for link in links:
                         print(f" - {link}")
                         if link != current_url and is_valid_url(link):
-                            normalized_link = normalize_url(link)
-                            if (normalized_link not in self.visited_urls and
-                                normalized_link not in self.urls_to_visit):
-                                self.urls_to_visit.append(normalized_link)
+                            normalised_link = normalise_url(link)
+                            if (normalised_link not in self.visited_urls and
+                                normalised_link not in self.urls_to_visit):
+                                self.urls_to_visit.append(normalised_link)
                 else:
                     print(" - None")
             except requests.RequestException as e:

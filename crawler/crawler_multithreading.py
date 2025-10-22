@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from queue import Queue
 from urllib.parse import urlparse, urljoin
-from .utils import normalize_url, is_valid_url, extract_internal_links
+from .utils import normalise_url, is_valid_url, extract_internal_links
 import threading
 
 class CrawlerMultithreading:
@@ -11,7 +11,7 @@ class CrawlerMultithreading:
         self.visited_urls = set()
         self.visited_lock = threading.Lock()
         self.urls_to_visit = Queue()
-        self.urls_to_visit.put(normalize_url(initial_url))
+        self.urls_to_visit.put(normalise_url(initial_url))
         self.max_threads = max_threads
 
     def worker(self):
