@@ -106,7 +106,7 @@ def extract_internal_links(starting_url: str, soup):
         if parsed.netloc.lower() != start_netloc:
             continue
 
-        found_links.add(absolute_url)
+        found_links.add(normalise_url(absolute_url))
     return found_links
 
 # exported names
