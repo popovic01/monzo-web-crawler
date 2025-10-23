@@ -69,9 +69,11 @@ python main.py
 ```
 
 ## ⚡ Future improvements
-- Add async crawler version using aiohttp for greater performance.
-- Export results for sitemap visualization.
+- Scaling with Kafka or RabbitMQ.
+- Add logging instead of print statements.
 - Request caching (e.g. store already crawled initial URLs in a file, for a few days).
 - Error handling could include retry mechanisms.
-- Differentiate http and https URLs. ???
 - Respect *robots.txt* if you want to show awareness of real-world crawler ethics (politeness).
+- Add async crawler version using aiohttp for greater performance.
+- Add test coverage for multithreaded execution.
+- Export results for sitemap visualization.
